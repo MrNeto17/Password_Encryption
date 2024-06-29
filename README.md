@@ -68,5 +68,3 @@ Explanation:
 License Section: Explicitly states that the project is licensed under the MIT License.
 
 Usage, Example, Future Updates, Contributing: Remain unchanged from the previous version, providing clear instructions, example usage, future plans, and guidelines for contributing.
-
-Make sure to save this content into a file named README.md in your project's root directory. This updated README.md file now includes the explicit mention of the MIT License, clarifying the licensing terms for users and contributors. Adjust any details as needed based on your project's specific details and preferences.
