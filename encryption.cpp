@@ -1,68 +1,44 @@
 #include <iostream>
+
+#include <iostream>
 #include <string>
 
-// Function to perform Caesar cipher encryption or decryption on a string
+// Caesar cipher encryption/decryption
 void caesarCipher(std::string& password, int shift, bool encryptMode) {
-    // Adjust shift to ensure it's within the range 0-25
+    // Ensure shift is within the range 0-25
     shift %= 26;
-    if (shift < 0) shift += 26;
+    if (shift < 0) {
+        shift += 26; // Adjust negative shift to positive equivalent
+    }
 
+    // Iterate through each character in the password
     for (char& ch : password) {
+        // Check if the character is alphabetic
         if (std::isalpha(ch)) {
+            // Determine base character ('a' for lowercase, 'A' for uppercase)
             char base = std::islower(ch) ? 'a' : 'A';
+
+            // Apply encryption or decryption based on mode
             if (encryptMode) {
-                ch = static_cast<char>((ch - base + shift) % 26 + base);
+                // Encrypt: shift character forward
+                ch = base + (ch - base + shift) % 26;
             } else {
-                ch = static_cast<char>((ch - base - shift + 26) % 26 + base);
+                // Decrypt: shift character backward
+                ch = base + (ch - base - shift + 26) % 26;
             }
         }
     }
 }
 
-// Function to perform XOR encryption or decryption on a string
+// XOR encryption/decryption
 void xorEncryption(std::string& password, const std::string& key) {
     size_t keyLength = key.length();
     size_t passwordLength = password.length();
 
+    // Iterate through each character in the password
     for (size_t i = 0; i < passwordLength; ++i) {
+        // XOR each character of the password with the corresponding key character
         password[i] ^= key[i % keyLength];
     }
 }
 
-int main() {
-    std::string password;
-    int shift;
-    std::string xorKey;
-
-    // Input password
-    std::cout << "Enter a password to encrypt/decrypt: ";
-    std::getline(std::cin, password);
-
-    // Input shift value
-    std::cout << "Enter the shift value for Caesar cipher (integer): ";
-    std::cin >> shift;
-
-    std::cin.ignore(); // Ignore newline left in the input buffer
-
-    // Encrypt with Caesar cipher
-    caesarCipher(password, shift, true);
-    std::cout << "Encrypted password (Caesar cipher): " << password << std::endl;
-
-    // Decrypt with Caesar cipher
-    caesarCipher(password, shift, false);
-    std::cout << "Decrypted password (Caesar cipher): " << password << std::endl;
-
-    // Input XOR encryption key
-    std::cout << "Enter the key for XOR encryption: ";
-    std::getline(std::cin, xorKey);
-
-    // Encrypt with XOR
-    xorEncryption(password, xorKey);
-    std::cout << "Encrypted password (XOR): " << password << std::endl;
-
-    // Decrypt with XOR (reversing XOR with the same key decrypts it)
-    xorEncryption(password, xorKey);
-    std::cout << "Decrypted password (XOR): " << password << std::endl;
-
-    return 0;
-}
