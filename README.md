@@ -64,7 +64,3 @@ Decrypted password (XOR): HelloWorld
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-Explanation:
-License Section: Explicitly states that the project is licensed under the MIT License.
-
-Usage, Example, Future Updates, Contributing: Remain unchanged from the previous version, providing clear instructions, example usage, future plans, and guidelines for contributing.
