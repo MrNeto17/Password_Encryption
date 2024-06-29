@@ -17,11 +17,11 @@ This project provides a command-line utility for encrypting and decrypting passw
 ### How to Use
 
 1. **Clone the repository:**
-git clone https://github.com/yourusername/encryption-project.git
+git clone https://github.com/MrNeto17/Password_Encryption.git
 
 
 2. **Navigate to the project directory:**
-cd encryption-project
+cd Password_Encryption
 
 
 
@@ -31,9 +31,6 @@ g++ -o main main.cpp
 
 4. **Run the executable:**
 ./main
-
-markdown
-Copiar código
 
 5. **Follow the prompts to:**
 - Enter a password for encryption/decryption.
